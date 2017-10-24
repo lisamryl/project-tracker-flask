@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}
+Student Added
+{% endblock %}
+{% block body %}
+  <h3>{{ fname }} {{ lname }} was successfully added to the database.</h3>
+  <a href="/student?github={{ github }}">Student Info</a>
+{% endblock %}

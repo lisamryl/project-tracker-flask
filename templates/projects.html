@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Project Info
+{% endblock %}
+{% block body %}
+  <h1>The Projects</h1>
+  {% if projects %}
+    {% for proj in projects %}
+      <a name="{{ proj[0] }}"></a>
+      <h2>{{ proj[0] }} &mdash; Maximum Grade: {{ proj[2] }}</h2>
+      <p>{{ proj[1] }}</p>
+        {% if project_grades %}
+        <ul>
+        {% for grades in project_grades[proj[0]] %}
+          <li><a href="/student?github={{ grades[0] }}">{{ grades[0] }}</a> 
+            received {{ grades[1] }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endblock %}
